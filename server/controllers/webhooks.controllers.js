@@ -4,13 +4,13 @@ import User from "../models/user.models.js";
 // API Controllers function
 export const clerkWebhook = async (req, res) => {
   try {
-    // cREATE A SVIX INSTANCE WITH CLERK WEBHOOK SCRET
+    // CREATE A SVIX INSTANCE WITH CLERK WEBHOOK SCRET
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
     // verifying headers
     await whook.verify(JSON.stringify(req.body), {
       "svix-id": req.headers["svix-id"],
-      "svix-timestamp": req.headers["scix-timestamp"],
+      "svix-timestamp": req.headers["svix-timestamp"],
       "svix-signature": req.headers["svix-signature"],
     });
 
@@ -22,9 +22,12 @@ export const clerkWebhook = async (req, res) => {
       case "user.created": {
         const userData = {
           _id: data.id,
-          email: data.email_addresses[0].email_addresses,
-          name: data.first_name + " " + data.last_name,
-          image: data.image_url,
+          email:
+            data?.email_addresses?.[0]?.email_address ||
+            data?.email_addresses?.[0]?.email ||
+            "",
+          name: `${data.first_name || ""} ${data.last_name || ""}`.trim(),
+          image: data.image_url || "",
           resume: "",
         };
         await User.create(userData);
@@ -33,9 +36,12 @@ export const clerkWebhook = async (req, res) => {
       }
       case "user.updated": {
         const userData = {
-          email: data.email_addresses[0].email_addresses,
-          name: data.first_name + " " + data.last_name,
-          image: data.image_url,
+          email:
+            data?.email_addresses?.[0]?.email_address ||
+            data?.email_addresses?.[0]?.email ||
+            "",
+          name: `${data.first_name || ""} ${data.last_name || ""}`.trim(),
+          image: data.image_url || "",
         };
         await User.findByIdAndUpdate(data.id, userData);
         res.json({});
@@ -50,7 +56,7 @@ export const clerkWebhook = async (req, res) => {
         break;
     }
   } catch (error) {
-    console.log("The error is " +error.message)
-    res.json({success: false, message: "Webhooks erros"})
+    console.log("The error is " + error.message);
+    res.json({ success: false, message: "Webhooks erros" });
   }
 };
