@@ -7,8 +7,8 @@ const Footer = () => {
       <img width={160} src={assets.logo} alt="" />
       <p className='flex-1 border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden'>Copyright @JobPortal | All rights reserved.</p>
       <div className='flex gap-2.5'>
-        <a href="https://www.facebook.com"><img width={38} src={assets.facebook_icon} alt="" /></a>
-        <a href="https://www.instagram.com"><img width={38} src={assets.instagram_icon} alt="" /></a>
+        <a href="https://www.facebook.com" target='__blank' ><img width={38} src={assets.facebook_icon} alt="" /></a>
+        <a href="https://www.instagram.com" target='__blank'><img width={38} src={assets.instagram_icon} alt="" /></a>
         <a href="https://www.x.com" target='__blank'><img width={38} src={assets.twitter_icon} alt="" /></a>
       </div>
     </div>
