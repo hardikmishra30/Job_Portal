@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className='shadow py-4'>
 
       <div className='container px-4 2xl:px-20 mx-auto flex justify-between items-center'>
-        <img width={200} src={companyToken ? (companyData?.image || assets.logo) : assets.logo} onClick={() => navigate('/')} className='cursor-pointer' alt="" />
+        <img width={160} src={companyToken ? (companyData?.image || assets.logo) : assets.logo} onClick={() => navigate('/')} className='cursor-pointer' alt="" />
         {
           companyToken ? (
             <div className='flex items-center gap-3'>
