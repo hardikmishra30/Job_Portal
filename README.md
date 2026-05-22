@@ -1,8 +1,8 @@
-# 🚀 NaukriFy - Modern Job Portal Web Application
+# 🚀 SwiftHire - Modern Job Portal Web Application
 
-NaukriFy is a full-stack job portal application designed to streamline the hiring process. It provides a seamless platform for recruiters to post jobs and for candidates to find their dream careers with an intuitive, responsive UI.
+SwiftHire is a full-stack job portal application designed to streamline the hiring process. It provides a seamless platform for recruiters to post jobs and for candidates to find their dream careers with an intuitive, responsive UI.
 
-**🌐 Live Demo:** [NaukriFy on Vercel](https://job-portal-client-one-xi.vercel.app/)
+**🌐 Live Demo:** [SwiftHire on Vercel](https://job-portal-client-one-xi.vercel.app/)
 
 ---
 
